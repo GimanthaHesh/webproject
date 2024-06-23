@@ -3,3 +3,6 @@ const router = express.Router();
 const {register} = require("../services/auth.services")
 
 router.post("/register", register)
+
+
+module.exports=router
