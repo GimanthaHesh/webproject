@@ -3,15 +3,23 @@ const mongoose = require("mongoose");
 //schema
 const canteenSchema = new mongoose.Schema(
   {
-    Canteenname: {
+    name: {
       type: String,
       required: [true, "canteen name required"],
     },
-    openclosetime: {
+    opentime: {
+      type: String,
+    },
+    closetime: {
       type: String,
     },
     description: {
       type: String,
+    },
+    admin: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Admin",
+      required: true,
     },
   },
   { timestamps: true }
