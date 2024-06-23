@@ -31,4 +31,20 @@ const create = async (req, res) => {
   }
 };
 
-module.exports = {create};
+const getcanteens = async (req, res) => {
+    console.log(req.query.type)
+    try {
+      const canteens = await canteenmodel.find();
+      if (!canteens) {
+        res.status(404).send({ success: false, message: "canteens not found" });
+      }
+      res.status(200).json(canteens);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+ 
+module.exports = {create,
+    getcanteens
+};
