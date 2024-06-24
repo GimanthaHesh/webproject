@@ -12,15 +12,6 @@ const paymentschema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    cardnumber: {
-      type: Number,
-    },
-    paymenttype: {
-      type: String,
-      enum: ["visa", "master", "amex"],
-      default: "visa",
-    },
-
     paymentstatus: {
       type: String,
     },
