@@ -1,7 +1,20 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcryptjs");
-const authmiddlewear = require("../middlewears/authmw");
-const usermodel = require("../models/user_m");
-const canteenmodel = require("../models/canteen_m");
-const foodmodels = require("../models/foods_m");
+const {getuser,getallusers,deleteuser,updateuser} = require("../services/user.services")
+const {authmiddlewear} = require("../middlewears/auth.middlewear")
+const {adminmiddlewear} = require("../middlewears/admin.middlewear")
+
+//admin
+
+router.get("/",authmiddlewear,getallusers)
+router.get("/:id",authmiddlewear,adminmiddlewear,getuser)
+router.get("/:id",updateuser)
+router.delete("/:id",deleteuser)
+
+// update 
+
+
+module.exports=router
+
+
+

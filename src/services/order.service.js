@@ -1,3 +1,5 @@
+const canteenmodel = require("../models/canteen.modle");
+const ordermodel = require("../models/order.modle");
 const foodmodel = require("../models/order.modle");
 
 const placeorder =async (req, res) => {
@@ -95,8 +97,47 @@ const placeorder =async (req, res) => {
     }
   };
 
+  const displayorders = async (req, res) => {
+    console.log(req.query.type)
+    try {
+      // Convert string to ObjectId
+      const canteen = await canteenmodel.aggregate([
+        { $match:{admin:req.user.id}}
+      ])
+      const canteenId = canteen._id
+      const orders = await ordermodel.aggregate([
+        { $match: { canteenid: canteenId } },
+      ]);
+      if (!orders) {
+        res.status(404).send({ success: true, message: "orders not found" });
+      }
+      res.status(200).json(orders);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
+  const displayorder = async (req, res) => {
+    const id = req.params.id;
+    try {
+      // Convert string to ObjectId
+      const canteen = await canteenmodel.aggregate([
+        { $match:{admin:req.user.id}}
+      ])
+      const orders = await ordermodel.findById(id)
+      if (!orders) {
+        res.status(404).send({ success: true, message: "orders not found" });
+      }
+      res.status(200).json(orders);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
   module.exports={
     placeorder,
     updateorder,
-    deleteorder
+    deleteorder,
+    displayorders,
+    displayorder
   }

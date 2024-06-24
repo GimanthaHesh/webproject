@@ -16,6 +16,10 @@ const canteenSchema = new mongoose.Schema(
     description: {
       type: String,
     },
+    oderid:[{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Order",
+  }],
     admin: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Admin",
