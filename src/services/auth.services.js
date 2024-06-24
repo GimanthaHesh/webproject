@@ -1,5 +1,5 @@
-const usermodel = require("../models/user.modle.js");
-const adminmodel = require("../models/admin.modle.js");
+const usermodel = require("../models/user.model.js");
+const adminmodel = require("../models/admin.model.js");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");

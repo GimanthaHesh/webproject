@@ -1,5 +1,5 @@
 const { request } = require("express");
-const paymentmodel = require("../models/payment.modle");
+const paymentmodel = require("../models/payment.model");
 
 const pay = async (req, res) => {
     try {

@@ -1,5 +1,5 @@
 
-const canteenmodel = require("../models/canteen.modle");
+const canteenmodel = require("../models/canteen.model");
 
 
 //Add canteen

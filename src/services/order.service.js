@@ -1,6 +1,6 @@
-const canteenmodel = require("../models/canteen.modle");
-const ordermodel = require("../models/order.modle");
-const foodmodel = require("../models/order.modle");
+const canteenmodel = require("../models/canteen.model");
+const ordermodel = require("../models/order.model");
+const foodmodel = require("../models/order.model");
 
 const placeorder =async (req, res) => {
     try {
