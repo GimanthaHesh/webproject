@@ -220,8 +220,10 @@ const login = async (req, res) => {
           .status(500)
           .send({ success: false, message: "Invalid Credentials" });
       }
+      
       const token = jwt.sign(
-        { id: admin._id, role: "boyhosteladmin" },
+
+        { id: admin._id, role: admin.role, },
         process.env.JWT_SECRET_BOYSCANTEEN_ADMIN
       );
       admin.password = undefined;
